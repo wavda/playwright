@@ -1,0 +1,21 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+version: 2.1
+
+# Define a job to be invoked later in a workflow.
+jobs:
+  run-test:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.23.1-focal
+    # Add steps to the job
+    steps:
+      - checkout
+      - run:
+          name: "Run test"
+          command: "npx playwright test"
+
+# Invoke jobs via workflows
+workflows:
+  say-hello-workflow:
+    jobs:
+      - run-test
