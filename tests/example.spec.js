@@ -23,14 +23,12 @@ const config = {
 
 module.exports = config;
 
-test('Login test', async ({ page }) => {
-  await page.goto('https://dev-front.niagahoster.co.id/');
-  await expect(page).toHaveTitle(/Hosting/);
-  await page.locator('text=1 Member Area Logout Login >> [aria-label="Sign In"]').click();
-  await page.locator('text=Email Password Lupa password? >> [placeholder="nama\\@email\\.com"]').fill('wavda@hostinger.com');
-  await page.locator('[placeholder="Masukkan Password Anda"]').fill('test@12345');
-  await page.locator('text=Masuk Sekarang Juga').click();
-  await page.waitForURL('https://dev-rest.niagahoster.co.id/client');
-  await page.locator('text=Hallo, Wavda A').click();
-  await page.screenshot({ path: './screenshots/screenshot.png', fullPage: true });
+test('Login as admin', async ({ page }) => {
+  await page.goto('https://opensource-demo.orangehrmlive.com/');
+  await expect(page).toHaveTitle(/OrangeHRM/);
+  await page.locator('input[name="txtUsername"]').fill('Admin');
+  await page.locator('input[name="txtPassword"]').fill('admin123');
+  await page.locator('input:has-text("LOGIN")').click();
+  await page.waitForURL('https://opensource-demo.orangehrmlive.com/index.php/dashboard');
+  await page.locator('text=Welcome Saurabh').click();
 });
