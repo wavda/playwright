@@ -10,6 +10,8 @@ jobs:
     # Add steps to the job
     steps:
       - checkout
+      - run: npm i -D @playwright/test
+      - run: npx playwright install
       - run:
           name: Run test
           command: npm playwright test
