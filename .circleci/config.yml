@@ -17,7 +17,7 @@ jobs:
           name: Run test
           command: PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --reporter=junit --project=chromium
       - store_artifacts:
-          path: /playwright-report/index.html
+          path: ./playwright-report/index.html
           destination: report
       - store_test_results:
           path: results.xml
