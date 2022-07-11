@@ -1,7 +1,7 @@
 const { test, expect, devices } = require('@playwright/test');
 
 const config = {
-  reporter: [ ['html', { open: 'always' }] ],
+  reporter: [ ['junit', { outputFile: 'results.xml' }] ],
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   use: {
@@ -30,5 +30,5 @@ test('Login as admin', async ({ page }) => {
   await page.locator('input[name="txtPassword"]').fill('admin123');
   await page.locator('input:has-text("LOGIN")').click();
   await page.waitForURL('https://opensource-demo.orangehrmlive.com/index.php/dashboard');
-  await page.locator('text=Welcome Saurabh').click();
+  await page.locator('id=welcome').click();
 });

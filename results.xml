@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="15.818">
+<testsuite name="login.spec.js" timestamp="1657541708656" hostname="" tests="1" failures="0" skipped="0" time="14.987" errors="0">
+<testcase name="Login as admin" classname="[chromium] › login.spec.js:26:1 › Login as admin" time="14.987">
+</testcase>
+</testsuite>
+</testsuites>

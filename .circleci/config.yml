@@ -12,9 +12,13 @@ jobs:
       - checkout
       - run: npm i -D @playwright/test
       - run: npx playwright install
+      - run: npx playwright install chrome
       - run:
           name: Run test
-          command: npx playwright test
+          command: PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --reporter=junit --project=chromium
+      - store_artifacts:
+          path: results.xml
+          destination: circleci-docs
 
 # Invoke jobs via workflows
 workflows:
