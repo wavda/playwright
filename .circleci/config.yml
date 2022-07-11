@@ -12,10 +12,10 @@ jobs:
       - checkout
       - run:
           name: "Run test"
-          command: "npx playwright test"
+          command: "npm playwright test"
 
 # Invoke jobs via workflows
 workflows:
-  say-hello-workflow:
+  run-test-workflow:
     jobs:
       - run-test
